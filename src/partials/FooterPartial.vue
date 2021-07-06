@@ -61,7 +61,7 @@
       </div>
     </section>
     <section class="footer__copyright bg-teal-dark py-4 text-white">
-      <div class="container">A Vue application for the course Advanced Vue by Bedu on Platzi</div>
+      <div class="container">A Vue application for the course Advanced Vue by Bedu</div>
     </section>
   </footer>
 </template>

@@ -30,7 +30,7 @@
                 Guest Suite in Historic Architecture Home
               </div>
               <div class="house__price text-xs">
-                <span class="font-bold">$592 MXN</span> per night
+                <span class="font-bold">$30 USD</span> per night
               </div>
             </div>
           </div>
