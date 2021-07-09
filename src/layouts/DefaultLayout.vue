@@ -4,15 +4,15 @@
     <section class="section__hero py-6 bg-black bg-cover bg-center">
       <div class="container">
         <div class="section__form bg-white p-4 w-1/2 shadow-md">
-          <h1 class="mb-2 text-4xl font-light text-grey-darkest">Find homes on Starphy rooms</h1>
+          <h1 class="mb-2 text-4xl font-light text-grey-darkest">Encuentra tu lugar ideal de hospedaje en Starphy</h1>
           <h2 class="mb-6 text-base text-grey-dark font-normal">
-            Discover entire homes and private rooms perfect for any trip.
+              Descubre habietaciones enteras en los lugares mas increibles.
           </h2>
           <form class="form__search">
             <div class="mb-4">
-              <label class="input__label" for="where">Where</label>
+              <label class="input__label" for="where">Dónde</label>
               <div class="form__field relative">
-                <i class="input-icon material-icons absolute text-grey-darker">search</i>
+                <i class="input-icon material-icons absolute text-grey-darker">Buscar</i>
                 <input
                   class="input__search"
                   id="where"
