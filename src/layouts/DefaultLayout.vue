@@ -12,7 +12,7 @@
             <div class="mb-4">
               <label class="input__label" for="where">Dónde</label>
               <div class="form__field relative">
-                <i class="input-icon material-icons absolute text-grey-darker">Buscar</i>
+                <i class="input-icon material-icons absolute text-grey-darker">search</i>
                 <input
                   class="input__search"
                   id="where"
@@ -31,19 +31,39 @@
       <slot></slot>
     </main>
     <footer-partial></footer-partial>
+   <!--  modals -->
+    <modal :show="modals.login" @close-modal="closeModal">
+      <h1>modal equis de equis de</h1>
+    </modal>
   </div>
 </template>
 
 <script>
 import HeaderPartial from '@/partials/HeaderPartial.vue';
 import FooterPartial from '@/partials/FooterPartial.vue';
+import Modal from "../components/Modal.vue";
 
 export default {
   name: 'DefaultLayout',
+
+  computed: {
+    ...mapGetters([
+      'modals',
+    ]),
+  },
   components: {
     HeaderPartial,
     FooterPartial,
+    Modal,
   },
+  methods: {
+    closeModal() {
+      this.$store.dispatch('TOGGLE_MODAL_STATE', {
+        name:'login',
+        value: false,
+      });
+    }
+  }
 };
 </script>
 
