@@ -4,20 +4,20 @@
     <section class="section__hero py-6 bg-black bg-cover bg-center">
       <div class="container">
         <div class="section__form bg-white p-4 w-1/2 shadow-md">
-          <h1 class="mb-2 text-4xl font-light text-grey-darkest">Encuentra tu lugar ideal de hospedaje en Starphy</h1>
+          <h1 class="mb-2 text-4xl font-light text-grey-darkest">Find homes on Platzi Rooms</h1>
           <h2 class="mb-6 text-base text-grey-dark font-normal">
-              Descubre habietaciones enteras en los lugares mas increibles.
+            Discover entire homes and private rooms perfect for any trip.
           </h2>
           <form class="form__search">
             <div class="mb-4">
-              <label class="input__label" for="where">Dónde</label>
+              <label class="input__label" for="where">Where</label>
               <div class="form__field relative">
                 <i class="input-icon material-icons absolute text-grey-darker">search</i>
                 <input
                   class="input__search"
                   id="where"
                   type="text"
-                  placeholder="Quito, Ecuador">
+                  placeholder="Mexico City, Mexico">
               </div>
             </div>
             <button
@@ -31,21 +31,21 @@
       <slot></slot>
     </main>
     <footer-partial></footer-partial>
-   <!--  modals -->
+    <!-- Modals -->
     <modal :show="modals.login" @close-modal="closeModal">
-      <h1>modal equis de equis de</h1>
+      <h1>puta la wea kdfjgbndk</h1>
     </modal>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import HeaderPartial from '@/partials/HeaderPartial.vue';
 import FooterPartial from '@/partials/FooterPartial.vue';
-import Modal from "../components/Modal.vue";
+import Modal from '@/components/Modal.vue';
 
 export default {
   name: 'DefaultLayout',
-
   computed: {
     ...mapGetters([
       'modals',
@@ -57,13 +57,13 @@ export default {
     Modal,
   },
   methods: {
-    closeModal() {
+    closeModal () {
       this.$store.dispatch('TOGGLE_MODAL_STATE', {
-        name:'login',
+        name: 'login',
         value: false,
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
