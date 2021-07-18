@@ -32,9 +32,60 @@
     </main>
     <footer-partial></footer-partial>
     <!-- Modals -->
+    <!-- login de usuarios -->
     <modal :show="modals.login" @close-modal="closeModal">
-      <h1>puta la wea kdfjgbndk</h1>
+      <h1 class="text-grey-darker font-semibold text-center mb-6">
+        Joder buenos dias
+      </h1>
+      <form>
+        <div class="mb-4">
+          <label class="input__label">Email</label>
+          <div class="form__field relative">
+            <input class="input__field" type="text" placeholder="bruce.waine@gmail.com">
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="input__label">Password</label>
+          <div class="form__field relative">
+            <input class="input__field" type="password" placeholder="xddddddddddddd">
+          </div>
+        </div>
+        <div class="mb-4">
+          <button class="btn btn/primary mr-3 w-fault"> Login </button>
+        </div>
+      </form>
     </modal>
+
+     <!-- modal de registro -->
+    <modal :show="modals.register" @close-modal="closeModal">
+        <h1 class="text-grey-darker font-semibold text-center mb-6">
+          Joder buenos dias
+        </h1>
+        <form>
+          <div class="mb-4">
+            <label class="input__label">Nombre</label>
+            <div class="form__field relative">
+              <input class="input__field" type="text" placeholder="bruce.waine@gmail.com">
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="input__label">Email</label>
+            <div class="form__field relative">
+              <input class="input__field" type="text" placeholder="bruce.waine@gmail.com">
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="input__label">Password</label>
+            <div class="form__field relative">
+              <input class="input__field" type="password" placeholder="xddddddddddddd">
+            </div>
+          </div>
+          <div class="mb-4">
+            <button class="btn btn/primary mr-3 w-fault"> Registrarse </button>
+          </div>
+        </form>
+      </modal>
+    
   </div>
 </template>
 
@@ -57,7 +108,7 @@ export default {
     Modal,
   },
   methods: {
-    closeModal () {
+    closeModal() {
       this.$store.dispatch('TOGGLE_MODAL_STATE', {
         name: 'login',
         value: false,

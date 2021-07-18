@@ -1,8 +1,8 @@
 <script>
 export default {
     name: "Modal",
-    props:{
-        show:{
+    props: {
+        show: {
             type: Boolean,
             default: false,
         },
@@ -11,7 +11,7 @@ export default {
         return (this.show) ? <div class="modal-wrapper">
         <div class="modal">
             <div class="modal-head text-rigth pb-2">
-                <a href="#" onClick="{this.onClose}">
+                <a href="#" onClick={this.onClose}>
                     <i class="material-icons modal-close-icon">close</i>
                 </a>
             </div>
