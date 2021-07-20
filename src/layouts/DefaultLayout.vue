@@ -32,60 +32,32 @@
     </main>
     <footer-partial></footer-partial>
     <!-- Modals -->
-    <!-- login de usuarios -->
     <modal :show="modals.login" @close-modal="closeModal">
-      <h1 class="text-grey-darker font-semibold text-center mb-6">
-        Joder buenos dias
-      </h1>
+      <h2 class="text-grey-darkest font-semibold text-center mb-6">
+        Welcome to Platzi Rooms
+      </h2>
       <form>
         <div class="mb-4">
           <label class="input__label">Email</label>
           <div class="form__field relative">
-            <input class="input__field" type="text" placeholder="bruce.waine@gmail.com">
+            <input v-model="formLogin.email" class="input__field" type="text" placeholder="bruce.wayne@imnotbatman.org">
           </div>
         </div>
         <div class="mb-4">
           <label class="input__label">Password</label>
           <div class="form__field relative">
-            <input class="input__field" type="password" placeholder="xddddddddddddd">
+            <input v-model="formLogin.password" class="input__field" type="password" placeholder="*********">
           </div>
         </div>
         <div class="mb-4">
-          <button class="btn btn/primary mr-3 w-fault"> Login </button>
+          <toggle-input v-model="formLogin.rememberMe"></toggle-input>
+          Remember Me
+        </div>
+        <div class="mb-4">
+          <button class="btn btn-primary mr-3 w-full">Login</button>
         </div>
       </form>
     </modal>
-
-     <!-- modal de registro -->
-    <modal :show="modals.register" @close-modal="closeModal">
-        <h1 class="text-grey-darker font-semibold text-center mb-6">
-          Joder buenos dias
-        </h1>
-        <form>
-          <div class="mb-4">
-            <label class="input__label">Nombre</label>
-            <div class="form__field relative">
-              <input class="input__field" type="text" placeholder="bruce.waine@gmail.com">
-            </div>
-          </div>
-          <div class="mb-4">
-            <label class="input__label">Email</label>
-            <div class="form__field relative">
-              <input class="input__field" type="text" placeholder="bruce.waine@gmail.com">
-            </div>
-          </div>
-          <div class="mb-4">
-            <label class="input__label">Password</label>
-            <div class="form__field relative">
-              <input class="input__field" type="password" placeholder="xddddddddddddd">
-            </div>
-          </div>
-          <div class="mb-4">
-            <button class="btn btn/primary mr-3 w-fault"> Registrarse </button>
-          </div>
-        </form>
-      </modal>
-    
   </div>
 </template>
 
@@ -94,9 +66,19 @@ import { mapGetters } from 'vuex';
 import HeaderPartial from '@/partials/HeaderPartial.vue';
 import FooterPartial from '@/partials/FooterPartial.vue';
 import Modal from '@/components/Modal.vue';
+import ToggleInput from '@/components/ToggleInput.vue';
 
 export default {
   name: 'DefaultLayout',
+  data() {
+    return {
+      formLogin: {
+        email: '',
+        password: '',
+        rememberMe: false,
+      },
+    };
+  },
   computed: {
     ...mapGetters([
       'modals',
@@ -106,9 +88,10 @@ export default {
     HeaderPartial,
     FooterPartial,
     Modal,
+    ToggleInput,
   },
   methods: {
-    closeModal() {
+    closeModal () {
       this.$store.dispatch('TOGGLE_MODAL_STATE', {
         name: 'login',
         value: false,
