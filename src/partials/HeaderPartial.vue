@@ -19,7 +19,7 @@
               <div class="flex items-center">
                 <img class="w-8 h-8 rounded-full mr-2" src="https://avatars2.githubusercontent.com/u/1901273?s=460&v=4" alt="Avatar of Javier Diaz">
                 <div class="text-sm">
-                  <p class="text-black leading-none">{</p>
+                  <p class="text-black leading-none"></p>
                   <p class="text-grey-dark">Online</p>
                 </div>
               </div>
