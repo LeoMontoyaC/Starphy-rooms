@@ -49,6 +49,9 @@ import {mapGetters} from 'vuex';
 
 export default {
   name: 'HomePage',
+  beforeCreate() {
+    this.$store.dispatch('FETCH_ROOMS', 12);
+  },
   computed: {
     ...mapGetters([
       'rooms',
