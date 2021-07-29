@@ -33,9 +33,9 @@
         </div>
       </div>
       <div class="text-center">
-        <a
+        <router-link :to= "{name: 'SearchPage '}"
           class="py-3 px-12 bg-yellow-dark no-underline text-yellow-darker text-lg rounded"
-          href="#">Show all</a>
+          href="#">Encuerar</router-link>
       </div>
     </section>
   </default-layout>
