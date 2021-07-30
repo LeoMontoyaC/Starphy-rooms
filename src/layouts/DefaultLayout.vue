@@ -4,9 +4,9 @@
     <section class="section__hero py-6 bg-black bg-cover bg-center">
       <div class="container">
         <div class="section__form bg-white p-4 w-1/2 shadow-md">
-          <h1 class="mb-2 text-4xl font-light text-grey-darkest">Find homes on Platzi Rooms</h1>
+          <h1 class="mb-2 text-4xl font-light text-grey-darkest">Find homes on Starphy casas tio como late</h1>
           <h2 class="mb-6 text-base text-grey-dark font-normal">
-            Discover entire homes and private rooms perfect for any trip.
+            descubre de la buena kdjfgnd
           </h2>
           <form class="form__search">
             <div class="mb-4">
@@ -36,7 +36,7 @@
       <h2 class="text-grey-darkest font-semibold text-center mb-6">
         Welcome to Platzi Rooms
       </h2>
-      <form>
+      <form @submit.prevent="loginHandlerSubmit">
         <div class="mb-4">
           <label class="input__label">Email</label>
           <div class="form__field relative">
@@ -59,49 +59,42 @@
       </form>
     </modal>
     <modal :show="modals.register" @close-modal="closeModalRegister">
-            <h2 class="text-grey-darkest font-semibold text-center mb-6">
-        Welcome to Platzi Rooms
-      </h2>
-      <form>
+      <form class="form" @submit.prevent="registerHandlerSubmit">
         <div class="mb-4">
-          <label class="input__label">Email</label>
+          <label class="input__label" for="email">Email</label>
           <div class="form__field relative">
-            <input  
-            class="input__field" 
-            id="email"
-            v-model="formRegister.email"
-            type="email" 
-            placeholder="bruce.wayne@imnotbatman.org">
+            <input
+              class="input__field"
+              id="email"
+              v-model="formRegister.email"
+              type="email"
+              placeholder="bruce.wayne@imnotbatman.org">
           </div>
         </div>
         <div class="mb-4">
-          <label class="input__label">Name</label>
+          <label class="input__label" for="email">Name</label>
           <div class="form__field relative">
-            <input  
-            class="input__field" 
-            id="name"
-            v-model="formRegister.name"
-            type="text" 
-            placeholder="bruce.wayne@imnotbatman.org">
+            <input
+              class="input__field"
+              id="name"
+              v-model="formRegister.name"
+              type="text"
+              placeholder="Bruce Wayne">
           </div>
         </div>
         <div class="mb-4">
-          <label class="input__label">Password</label>
+          <label class="input__label" for="password">Password</label>
           <div class="form__field relative">
-            <input 
-            class="input__field" 
-            id="name"
-            v-model="formRegister.password"
-            type="password" 
-            placeholder="Create a password">
+            <input
+              class="input__field"
+              id="password"
+              v-model="formRegister.password"
+              type="password"
+              placeholder="Create a Password">
           </div>
         </div>
         <div class="mb-4">
-          <toggle-input v-model="formLogin.rememberMe"></toggle-input>
-          Remember Me
-        </div>
-        <div class="mb-4">
-          <button class="btn btn-primary mr-3 w-full">Create Account</button>
+          <button class="btn w-full">Create account</button>
         </div>
       </form>
     </modal>
@@ -125,10 +118,10 @@ export default {
         rememberMe: false,
       },
       formRegister: {
-        email:'',
-        name:'',
-        password:'',
-      }
+        email: '',
+        name: '',
+        password: '',
+      },
     };
   },
   computed: {
@@ -154,7 +147,21 @@ export default {
         name: 'register',
         value: false,
       });
-    }
+    },
+    registerHandlerSubmit() {
+      this.$store.dispatch('CREATE_USER', this.formRegister)
+        .then(() => {
+          this.closeModalRegister();
+        });
+    },
+    loginHandlerSubmit() {
+      this.$store.dispatch('SIGN_IN', {
+        email: this.formLogin.email,
+        password: this.formLogin.password
+      }).then(() => {
+        this.closeModal();
+      });
+    },
   },
 };
 </script>

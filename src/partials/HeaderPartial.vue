@@ -53,6 +53,11 @@
 import CurrentUser from '@/components/CurrentUser.vue';
 export default {
   name: 'HeaderPartial',
+  data() {
+    return {
+      isAuthenticated: true,
+    };
+  },
   methods: {
     getLogin() {
       this.$store.dispatch('TOGGLE_MODAL_STATE', {
